@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Graduate", serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: lightskyblue;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #e3f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    background: #3a4452;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.calculator form input {
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+form .display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+form .display input {
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    box-shadow: none;
+}
+
+form input.equal {
+    width: 200px;
+}
+
+form input.ac {
+    width: 148px;
+}
+
+input {
+    padding: 0.75em 1.5em;
+    background-color: white;
+    border: 2px solid;
+    font-size: larger;
+    border-radius: 1.65em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+input::before,
+input::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+input::before {
+    background-image: linear-gradient(45deg, tomato 0%, salmon 25%, peachpuff 100%);
+    z-index: -1;
+    transition: opacity 240ms linear;
+    opacity: 0;
+}
+
+input::after {
+    content: '';
+    height: 150%;
+    width: 0.25em;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px 4px #fff;
+    transform: translateX(-1em);
+}
+
+input:hover::before {
+    opacity: 1;
+}
+
+input:hover::after {
+    animation-duration: 300ms;
+    animation-name: sweep;
+}
+
+@keyframes sweep {
+    from {
+        transform: translateX(-1em)
+    }
+    to {
+        transform: translateX(12.5em);
+        animation-timing-function: ease-out;
+    }
+}
